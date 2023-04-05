@@ -6,8 +6,16 @@ import Avatar from '../Avatar'
 import MenuItem from './MenuItem'
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import useLoginModal from '@/app/hooks/useLoginModal';
+import { signOut } from 'next-auth/react';
+import { SafeUser } from '@/app/types';
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: SafeUser|null;
+}
+
+const UserMenu:React.FC<UserMenuProps> = ({
+  currentUser
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal()
@@ -83,11 +91,26 @@ const UserMenu = () => {
             flex flex-col cursor-pointer
           ">
             <>
-              <MenuItem onClick={loginModal.onOpen} label="Login"/>
-              <MenuItem 
-                onClick={registerModal.onOpen} 
-                label="Sign Up"
-              />
+              {currentUser? (
+                <>
+                  <MenuItem onClick={()=>{}} label="My trips"/>
+                  <MenuItem onClick={()=>{}} label="My favourites"/>
+                  <MenuItem onClick={()=>{}} label="My reservations"/>
+                  <MenuItem onClick={()=>{}} label="My properties"/>
+                  <MenuItem onClick={()=>{}} label="Airbnb my home"/>
+                  <hr/>
+                  <MenuItem onClick={()=>signOut()} label="Logout"/>
+                </>
+              ):
+              <>
+                <MenuItem onClick={loginModal.onOpen} label="Login"/>
+                <MenuItem 
+                  onClick={registerModal.onOpen} 
+                  label="Sign Up"
+                />
+              </>
+              }
+              
             </>
           </div>
         </div>
