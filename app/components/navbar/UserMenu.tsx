@@ -4,9 +4,13 @@ import react, {useState, useCallback} from 'react';
 import { AiOutlineMenu } from 'react-icons/ai'
 import Avatar from '../Avatar'
 import MenuItem from './MenuItem'
+import useRegisterModal from '@/app/hooks/useRegisterModal';
+import useLoginModal from '@/app/hooks/useLoginModal';
 
 const UserMenu = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const registerModal = useRegisterModal();
+  const loginModal = useLoginModal()
 
   const toggleOpen = useCallback(() => setIsOpen(prev=>!prev), [])
 
@@ -33,7 +37,7 @@ const UserMenu = () => {
           Airbnb your home
         </div>
         <div
-          onClick={()=>{}}
+          onClick={toggleOpen}
           className="
             p-4
             md:py-1
@@ -62,7 +66,8 @@ const UserMenu = () => {
         </div>
       </div>
       {isOpen && (
-        <div className="
+        <div 
+        className="
           absolute
           rounded-xl
           shadow-md
@@ -78,8 +83,11 @@ const UserMenu = () => {
             flex flex-col cursor-pointer
           ">
             <>
-              <MenuItem onClick={()=>{}} label="Login"/>
-              <MenuItem onClick={()=>{}} label="Sign Up"/>
+              <MenuItem onClick={loginModal.onOpen} label="Login"/>
+              <MenuItem 
+                onClick={registerModal.onOpen} 
+                label="Sign Up"
+              />
             </>
           </div>
         </div>
