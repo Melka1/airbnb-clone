@@ -16,9 +16,11 @@ import {
   useForm
 } from 'react-hook-form'
 import useRegisterModal from '@/app/hooks/useRegisterModal'
+import useLoginModal from '@/app/hooks/useLoginModal'
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading,setIsLoading] = useState(false)
 
   const {
@@ -48,6 +50,11 @@ const RegisterModal = () => {
         setIsLoading(false)
       })
   }
+
+  const toggle = useCallback(()=>{
+    registerModal.onClose()
+    loginModal.onOpen()
+  },[loginModal, registerModal])
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
@@ -107,7 +114,7 @@ const RegisterModal = () => {
         <p>Already have an account?</p>
         <p
           className='text-neutral-800 cursor-pointer hover:underline'
-          onClick={registerModal.onClose}
+          onClick={toggle}
         >Log in</p>
       </div>
     </div>
