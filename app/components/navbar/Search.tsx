@@ -7,8 +7,6 @@ import { useSearchParams } from 'next/navigation';
 import { useMemo } from 'react';
 import {BiSearch} from 'react-icons/bi';
 
-
-
 const Search = () => {
 
   const searchModal = useSearchModal()
@@ -20,36 +18,36 @@ const Search = () => {
   const endDate = params?.get('endDate')
   const guestCount = params?.get('guestCount')
 
-  const locationLabel = useMemo(()=>{
-    if(locationValue){
-      return getByValue(locationValue as string)?.label
-    }
-    return 'Any where'
-  },[locationValue, getByValue])
+  // const locationLabel = useMemo(()=>{
+  //   if(locationValue){
+  //     return getByValue(locationValue)?.label
+  //   }
+  //   return 'Any where'
+  // },[locationValue, getByValue])
 
-  const guestCountLabel = useMemo(()=>{
-    if(guestCount){
-      return `${guestCount} Guests`
-    }
-    return 'Any guest'
-  },[guestCount])
+  // const guestCountLabel = useMemo(()=>{
+  //   if(guestCount){
+  //     return `${guestCount} Guests`
+  //   }
+  //   return 'Any guest'
+  // },[guestCount])
 
-  const durationLabel = useMemo(()=>{
-    if(startDate&&endDate){
-      const start = new Date(startDate as string)
-      const end = new Date(endDate as string)
-      let diff = differenceInDays(end, start)
+  // const durationLabel = useMemo(()=>{
+  //   if(startDate&&endDate){
+  //     const start = new Date(startDate)
+  //     const end = new Date(endDate)
+  //     let diff = differenceInDays(end, start)
 
-      if(diff==0){
-        diff = 1
-      }
+  //     if(diff==0){
+  //       diff = 1
+  //     }
 
-      return `${diff} Days`
-    }
+  //     return `${diff} Days`
+  //   }
 
-    return 'Any week'
+  //   return 'Any week'
 
-  },[startDate, endDate])
+  // },[startDate, endDate])
 
   return (
     <div
@@ -66,18 +64,21 @@ const Search = () => {
         cursor-pointer
       "
     >
-      <div className="
-        flex
-        flex-row
-        items-center
-        justify-between
-      ">
+      <div 
+        className="
+          flex
+          flex-row
+          items-center
+          justify-between
+        "
+      >
         <div className="
           text-sm
           font-semibold
           px-6
         ">
-          {locationLabel}
+          {/* {locationLabel} */}
+          Any where
         </div>
         <div className="
           hidden
@@ -89,7 +90,8 @@ const Search = () => {
           flex-1
           text-center
         ">
-          {durationLabel}
+          {/* {durationLabel} */}
+          Any week
         </div> 
         <div className="
           text-sm
@@ -105,7 +107,8 @@ const Search = () => {
             hidden
             sm:block
           ">
-            {guestCountLabel}
+            {/* {guestCountLabel} */}
+            Any guest
           </div>
           <div className="
             p-2
