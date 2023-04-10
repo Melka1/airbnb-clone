@@ -1,12 +1,12 @@
 
 import getCurrentUser from "../actions/getCurrentUser";
-import getFavourites from "../actions/getFavourites";
 
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
-import FavouritesClient from "./FavouritesClient";
+import getListings from "../actions/getListings";
+import PropertiesClient from "./PropertiesClient";
 
-const FavouritesPage = async() => {
+const PropertiesPage = async() => {
   const currentUser = await getCurrentUser()
 
   if(!currentUser){
@@ -20,14 +20,16 @@ const FavouritesPage = async() => {
     )
   }
 
-  const favourites = await getFavourites() 
+  const properties = await getListings({
+    userId:currentUser.id
+  }) 
 
-  if(favourites.length == 0){
+  if(properties.length == 0){
     return (
       <ClientOnly>
         <EmptyState
-          title="No Favourites found"
-          subtitle="looks like you haven't reserved any trips."
+          title="No properties found"
+          subtitle="looks like you haven't no properties."
         />
       </ClientOnly>
     )
@@ -35,12 +37,12 @@ const FavouritesPage = async() => {
 
   return (
     <ClientOnly>
-      <FavouritesClient
-        favourites={favourites}
+      <PropertiesClient
+        properties={properties}
         currentUser={currentUser}
       />
     </ClientOnly>
   )
 }
 
-export default FavouritesPage
+export default PropertiesClient

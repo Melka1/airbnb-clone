@@ -38,6 +38,7 @@ const FavouritesClient:React.FC<FavouritesClientProps> = ({
             <ListingCard
               key={favourite.id}
               data={favourite}
+              currentUser={currentUser}
             />
           ))
         }
