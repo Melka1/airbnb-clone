@@ -43,4 +43,4 @@ const PropertiesPage = async() => {
   )
 }
 
-export default PropertiesClient
+export default PropertiesPage
