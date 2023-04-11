@@ -30,7 +30,7 @@ export async function POST(
     data:{
       title,
       description,
-      imadeSrc:imageSrc,
+      imageSrc,
       category,
       roomCount,
       bathroomCount,

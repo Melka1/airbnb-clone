@@ -1,4 +1,3 @@
-import { Inter } from 'next/font/google'
 import ClientOnly from './components/ClientOnly'
 import Container from './components/navbar/Container'
 import EmptyState from './components/EmptyState'
@@ -6,7 +5,6 @@ import getListings, { IParams } from './actions/getListings'
 import ListingCard from './components/listings/ListingCard'
 import getCurrentUser from './actions/getCurrentUser'
 
-const inter = Inter({ subsets: ['latin'] })
 
 interface HomeProps {
   searchParams:IParams

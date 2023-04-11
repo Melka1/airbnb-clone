@@ -9,17 +9,6 @@ import FavouritesClient from "./FavouritesClient";
 const FavouritesPage = async() => {
   const currentUser = await getCurrentUser()
 
-  if(!currentUser){
-    return (
-      <ClientOnly>
-        <EmptyState
-          title='Unauthorized'
-          subtitle="Please login"
-        />
-      </ClientOnly>
-    )
-  }
-
   const favourites = await getFavourites() 
 
   if(favourites.length == 0){

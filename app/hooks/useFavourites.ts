@@ -47,7 +47,7 @@ const useFavourite = ({
         await request()
         router.refresh()
         toast.success('Success')
-      } catch (err) {
+      } catch (error) {
         toast.error('something went wrong')
       }
     },[currentUser, listingId, hasFavourited, router, loginModal])

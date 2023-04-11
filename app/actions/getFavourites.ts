@@ -23,7 +23,7 @@ export default async function getFavouries(){
 
     const safeFavourites = favourites.map(favourite =>({
       ...favourite,
-      createdAt:favourite.createdAt.toISOString()
+      createdAt:favourite.createdAt.toString()
     }))
 
     return safeFavourites

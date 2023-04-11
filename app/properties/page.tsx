@@ -11,12 +11,10 @@ const PropertiesPage = async() => {
 
   if(!currentUser){
     return (
-      <ClientOnly>
         <EmptyState
           title='Unauthorized'
           subtitle="Please login"
         />
-      </ClientOnly>
     )
   }
 

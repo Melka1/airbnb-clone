@@ -4,7 +4,7 @@ import getCurrentUser from "@/app/actions/getCurrentUser";
 import prisma from '@/app/libs/prismadb'
 
 interface IParams {
-  listingId:string
+  listingId?:string
 }
 
 async function DELETE(params:IParams) {
@@ -17,7 +17,7 @@ async function DELETE(params:IParams) {
 
   const {listingId} = params
 
-  if(!listingId || typeof(listingId) != 'string' ){
+  if(!listingId || typeof(listingId) !== 'string' ){
     throw new Error('Invalid ID')
   }
 

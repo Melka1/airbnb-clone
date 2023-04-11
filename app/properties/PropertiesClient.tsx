@@ -17,7 +17,6 @@ interface PropertiesClientProps {
   currentUser?:SafeUser|null
 }
 
-
 const PropertiesClient:React.FC<PropertiesClientProps> = ({
   properties,
   currentUser
@@ -65,7 +64,6 @@ const PropertiesClient:React.FC<PropertiesClientProps> = ({
           <ListingCard
             key={property.id}
             data={property}
-            // reservation={property}
             actionId={property.id}
             onAction={onCancel}
             disabled={deletedId==property.id}
