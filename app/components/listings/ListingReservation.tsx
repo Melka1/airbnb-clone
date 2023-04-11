@@ -42,7 +42,7 @@ const ListingReservation:React.FC<ListingReservationProps> = ({
         '
       >
         <p className='text-2xl font-semibold'>$ {price}</p>
-        <p className='font-light text-neutral-600'>night</p>
+        <p className='font-light text-neutral-600'> night</p>
       </div>
       <hr />
       <Calendar
