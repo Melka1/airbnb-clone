@@ -33,8 +33,7 @@ const HeartButton:React.FC<HeartButtonProps> = ({
         className='
           fill-white
           absolute
-          -top-[2px]
-          -right-[2px]
+          
         '
       />
       <AiFillHeart
