@@ -72,7 +72,7 @@ const ListingReservation:React.FC<ListingReservationProps> = ({
         '
       >
         <p>Total</p>
-        <p>$ {totalPrice}</p>
+        <p> ${totalPrice}</p>
       </div>
     </div>
   )

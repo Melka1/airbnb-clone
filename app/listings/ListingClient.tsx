@@ -125,7 +125,7 @@ const ListingClient:React.FC<ListingClientProps>=({
             className="
               grid
               grid-cols-1
-              md:grid-cols-7
+              md:grid-cols-12
               md:gap-10
               mt-6
             "
@@ -144,7 +144,7 @@ const ListingClient:React.FC<ListingClientProps>=({
                 order-first
                 mb-10
                 md:order-last
-                md:col-span-3
+                md:col-span-6
               "
             >
               <ListingReservation
